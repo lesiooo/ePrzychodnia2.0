@@ -1,0 +1,42 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html >
+<head>
+    <title>{% block title %} {% endblock %}</title>
+    <link href="{% static "css/base.css" %}" rel="stylesheet">
+</head>
+<body>
+    <div id="header">
+        <span class="logo">ePrzychodnia</span>
+        {% if request.user.is_authenticated %}
+            <ul class="menu">
+                <li {% if section == "dashboard" %} class="selected"{% endif %}>
+                    <a href="{% url "dashboard" %}">Panel główny</a>
+                </li>
+                <li {% if section == "badania" %} class="selected" {% endif %}>
+                    <a href="#">Badania</a>
+                </li>
+                <li {% if section == "Dawkowanie leków" %} class="selected" {% endif %}>
+                    <a href="#">Dawkowanie leków</a>
+                </li>
+                <li {% if section == "Zapis do lekarza" %} class="selected" {% endif %}>
+                    <a href="#">Zapis do lekarza</a>
+                </li>
+            </ul>
+
+        {% endif %}
+    <span class="user">
+        {% if request.user.is_authenticated %}
+            Witaj, {{ request.user.first_name }}
+            <a href="{% url "logout" %}" > Wyloguj</a>
+        {% else %}
+            <a href="{% url "login" %}" > Zaloguj</a>
+        {% endif %}
+    </span>
+    </div>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
