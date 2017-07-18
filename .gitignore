@@ -1,1 +1,4 @@
 db.sqlite3
+.idea/
+ePrzychodnia/settings.py
+profil.migrations/

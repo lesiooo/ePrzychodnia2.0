@@ -7,18 +7,20 @@ class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput, label='Hasło')
     password2 = forms.CharField(widget=forms.PasswordInput, label='Powtórz hasło')
 
-
-
-
     class Meta:
         model = User
         fields = ('username', 'first_name', 'last_name', 'email')
 
-        def clean_password2(self):
-            cd = self.cleaned_data
-            if cd['password'] != cd['password2']:
-                raise forms.ValidationError('Hasła różnią się.')
-            return cd['password2']
+    def clean_password2(self):
+        cd = self.cleaned_data
+        if cd['password'] != cd['password2']:
+            raise forms.ValidationError('Hasła różnią się.')
+        return cd['password2']
+    def clean_email(self):
+        cd = self.cleaned_data.get('email')
+        if User.objects.filter(email=cd).exists():
+            raise forms.ValidationError('Adres email jest już używany.')
+        return cd
 
 class UserEditForm(forms.ModelForm):
     class Meta:
