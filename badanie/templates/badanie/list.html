@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %} Historia badań {% endblock %}
+
+{% block content %}
+<h1>Lista przeprowadzonych badań</h1>
+    {% for badanie in list_badanie %}
+    <h2> {{ badanie.doctor }} {{ badanie.notes }} {{ badanie.date_of_medical_examination }}  {{ badanie.file_of_medical_examination }}</h2>
+    {% endfor %}
+{% endblock %}
