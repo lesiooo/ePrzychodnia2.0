@@ -4,7 +4,11 @@
 
 {% block content %}
 <h1>Lista przeprowadzonych badań</h1>
-    {% for badanie in list_badanie %}
+    {% if request.user.groups.all.0.name == "lekarz"%}
+        <p>Aby dodać nowe badanie przejdź
+            <a href="{% url "badanie_add" %}" >tutaj</a>.</p>
+    {% endif %}
+    {% for badanie in badanie_list %}
     <h2> {{ badanie.doctor }} {{ badanie.notes }} {{ badanie.date_of_medical_examination }}  {{ badanie.file_of_medical_examination }}</h2>
     {% endfor %}
 {% endblock %}

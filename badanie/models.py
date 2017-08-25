@@ -16,3 +16,4 @@ class Badanie(models.Model):
     date_of_medical_examination = models.DateField(default=timezone.now)
     file_of_medical_examination = models.FileField(blank=True, upload_to=generate_filename)
     notes = models.TextField()
+

@@ -2,7 +2,7 @@ from django import forms
 from .models import Badanie
 from django.forms import ModelChoiceField
 from django.contrib.auth.models import User
-from django.conf import settings
+
 
 
 class DoctorFullName(ModelChoiceField):
@@ -13,7 +13,7 @@ class PatientFullName(ModelChoiceField):
     def label_from_instance(self, instance):
         return '{0} {1}'.format(str(instance.get_full_name()), str(instance.profile.PESEL))
 
-class BadanieAdminForm(forms.ModelForm):
+class BadanieAdminForm(forms.ModelForm, ):
     doctor = DoctorFullName(User.objects.filter(groups__name='lekarz'))
     patient = PatientFullName(User.objects.filter(groups__name='pacjent'))
 
