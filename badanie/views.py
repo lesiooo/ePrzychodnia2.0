@@ -13,8 +13,6 @@ def badanie_view(request):
                 new_form = badanie_form.save(commit=False)
                 new_form.doctor = request.user
                 new_form.save()
-
-
         else:
             badanie_form = BadanieForm()
         return render(request, 'badanie/add.html', {'badanie_form': badanie_form, 'section':'badania'})

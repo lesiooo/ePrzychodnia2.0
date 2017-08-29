@@ -38,3 +38,7 @@ def edit(request):
     return render(request, 'profil/edit.html', {'user_form': user_form, 'profile_form': profile_form})
 
 
+def main_page(request):
+    return render(request, 'profil/dashboard.html')
+
+
