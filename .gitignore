@@ -4,3 +4,4 @@ ePrzychodnia/settings.py
 profil/migrations/
 badanie/migrations/
 files/
+appointment/migrations/

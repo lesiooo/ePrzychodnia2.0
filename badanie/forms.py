@@ -4,7 +4,6 @@ from django.forms import ModelChoiceField
 from django.contrib.auth.models import User
 
 
-
 class DoctorFullName(ModelChoiceField):
     def label_from_instance(self, instance):
         return 'dr {0}'.format(str(instance.get_full_name()))
