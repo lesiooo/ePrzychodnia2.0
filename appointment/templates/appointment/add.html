@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %} Zapis do lekarza {% endblock %}
+
+{% block content %}
+    <head>
+    <meta charset="utf-8" />
+        <title>Form</title>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <script>
+        $(function() {
+            $( "#id_date_of_appointment" ).datepicker({
+                dateFormat: 'yy-mm-dd'
+            });
+        });
+        </script>
+    </head>
+<h1>Aby zapisać się do lekarza wypełnij poniższy formularz.</h1>
+<form action="." method="post">
+    {{ appointment_form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="Zapisz"> </p>
+</form>
+{% endblock %}
