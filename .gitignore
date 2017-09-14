@@ -5,3 +5,4 @@ profil/migrations/
 badanie/migrations/
 files/
 appointment/migrations/
+medication_dosage/migrations/

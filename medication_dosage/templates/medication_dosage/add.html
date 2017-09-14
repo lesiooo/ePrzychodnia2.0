@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %} Dawkowanie leków {% endblock %}
+
+{% block content %}
+<h1> Wpisz dawkowanie leków dla pacjenta</h1>
+   <form action="." method="post">
+   {{ medication_dosage_form.as_p }}
+   {% csrf_token %}
+   <p><input type="submit" value="Zapisz"> </p>
+   </form>
+{% endblock %}

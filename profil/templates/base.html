@@ -16,8 +16,8 @@
                 <li {% if section == "badania" %} class="selected" {% endif %}>
                     <a href="{% url "list" %}">Badania</a>
                 </li>
-                <li {% if section == "Dawkowanie leków" %} class="selected" {% endif %}>
-                    <a href="#">Dawkowanie leków</a>
+                <li {% if section == "dawkowanie" %} class="selected" {% endif %}>
+                    <a href="{% url 'dawkowanie_form' %}">Dawkowanie leków</a>
                 </li>
                 <li {% if section == "zapis" %} class="selected" {% endif %}>
                     <a href="{% url "zapis_do_lekarza" %}">Zapis do lekarza</a>

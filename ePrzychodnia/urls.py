@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^badanie/', include('badanie.urls')),
     url(r'^$', 'profil.views.main_page'),
     url(r'^zapis/', include('appointment.urls')),
+    url(r'^dawkowanie/', include('medication_dosage.urls')),
 ]

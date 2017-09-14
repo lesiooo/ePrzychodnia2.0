@@ -34,6 +34,7 @@ INSTALLED_APPS = (
     'profil',
     'badanie',
     'appointment',
+    'medication_dosage',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

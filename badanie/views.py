@@ -8,13 +8,13 @@ from .models import Badanie
 def badanie_view(request):
     if request.user.groups.filter(name__in=['lekarz']).exists():
         if request.method == 'POST':
-            badanie_form = BadanieForm(request.POST, request.FILES)
+            badanie_form = BadanieForm(request.user, request.POST, request.FILES)
             if badanie_form.is_valid():
                 new_form = badanie_form.save(commit=False)
                 new_form.doctor = request.user
                 new_form.save()
         else:
-            badanie_form = BadanieForm()
+            badanie_form = BadanieForm(request.user)
         return render(request, 'badanie/add.html', {'badanie_form': badanie_form, 'section':'badania'})
     else:
         return render(request, 'badanie/list.html', {'section': 'badanie'})
