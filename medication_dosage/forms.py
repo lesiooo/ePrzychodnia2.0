@@ -6,6 +6,7 @@ from .models import MedicationDosage
 from datetime import timedelta, date
 
 
+
 class MedicationDosageForm(forms.ModelForm):
     patient = PatientFullName(User.objects.filter(groups__name='pacjent'))
 
@@ -21,6 +22,16 @@ class MedicationDosageForm(forms.ModelForm):
         model = MedicationDosage
         fields = ('patient','list_of_medicaments',)
         exclude = ('date',)
+        labels = {
+            'patient' : ('Pacjent'),
+            'list_of_medicaments' : ('Lista lekarstw wraz z dawkowaniem'),
+            'date' : ('Data przepisania leków')
+        }
 
 
+class MedicationDosageAdminForm(forms.ModelForm):
+    patient = PatientFullName(User.objects.filter(groups__name='pacjent'))
 
+    class Meta:
+        model = MedicationDosage
+        fields = ('patient', 'list_of_medicaments')

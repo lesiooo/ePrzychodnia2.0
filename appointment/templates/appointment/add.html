@@ -23,10 +23,13 @@
     {% csrf_token %}
     <p><input type="submit" value="Zapisz"> </p>
 </form>
-
     <h2>Najbliższe wizyty:</h2>
     {% for item in appointment_list %}
         {{ item.doctor.get_full_name }} {{ item.date_of_appointment }} <br>
 
+    {% endfor %}
+    <h2> Historia wizyt:</h2>
+    {% for item in appointment_history %}
+        {{ item.doctor.get_full_name }} {{ item.date_of_appointment }} <br>
     {% endfor %}
 {% endblock %}

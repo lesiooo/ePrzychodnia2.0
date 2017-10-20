@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 
 def generate_filename(instance, filename):
-    return 'files/{0}_{1}_{2}/{3}'.format(str(instance.patient.first_name)
+    return '{0}_{1}_{2}/{3}'.format(str(instance.patient.first_name)
                                           , str(instance.patient.last_name), str(instance.patient.profile.PESEL), filename)
 
 

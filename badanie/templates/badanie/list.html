@@ -10,5 +10,8 @@
     {% endif %}
     {% for badanie in badanie_list %}
     <h2> {{ badanie.doctor }} {{ badanie.notes }} {{ badanie.date_of_medical_examination }}  {{ badanie.file_of_medical_examination }}</h2>
+        <form method="get" action="{{ badanie.file_of_medical_examination.url }}">
+         <button type="submit">Pobierz</button>
+        </form>
     {% endfor %}
 {% endblock %}

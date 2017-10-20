@@ -8,7 +8,11 @@ from django.contrib import messages
 
 @login_required
 def appointment_add_view(request):
-    appointment_list = Appointment.objects.filter(patient=request.user, date_of_appointment__gte=timezone.now).order_by(
+    appointment_history = Appointment.objects.filter(patient=request.user,
+                                                     date_of_appointment__lte=timezone.now).order_by(
+        'date_of_appointment')
+    appointment_list = Appointment.objects.filter(patient=request.user,
+                                                  date_of_appointment__gte=timezone.now).order_by(
         'date_of_appointment')
 
     if request.method == 'POST':
@@ -48,7 +52,8 @@ def appointment_add_view(request):
         appointment_form = AppointmentForm()
 
     return render(request, 'appointment/add.html',
-                  {'appointment_form': appointment_form,'section':'zapis', 'appointment_list': appointment_list})
+                  {'appointment_form': appointment_form,'section':'zapis',
+                   'appointment_list': appointment_list, 'appointment_history':appointment_history})
 
 
 # Create your views here.

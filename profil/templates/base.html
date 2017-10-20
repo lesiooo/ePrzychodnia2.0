@@ -17,13 +17,18 @@
                     <a href="{% url "list" %}">Badania</a>
                 </li>
                 <li {% if section == "dawkowanie" %} class="selected" {% endif %}>
-                    <a href="{% url 'dawkowanie_form' %}">Dawkowanie leków</a>
+                    <a href="{% url 'medication_dosage_list' %}">Dawkowanie leków</a>
                 </li>
                 <li {% if section == "zapis" %} class="selected" {% endif %}>
                     <a href="{% url "zapis_do_lekarza" %}">Zapis do lekarza</a>
                 </li>
             </ul>
-
+        {% else %}
+            <ul class="menu">
+                <li>
+                    <a href="{% url "register" %}"> Rejestracja </a>
+                </li>
+            </ul>
         {% endif %}
     <span class="user">
         {% if request.user.is_authenticated %}

@@ -33,9 +33,16 @@ class BadanieForm(forms.ModelForm):
                                                                                           date_of_appointment__month=date.today().month,
                                                                                           date_of_appointment__year=date.today().year,
                                                                                            doctor=user)))
+        self.fields['patient'].label = 'Pacjent'
 
     class Meta:
         model = Badanie
         fields = ('patient', 'file_of_medical_examination', 'notes')
         exclude = ('doctor',)
+        labels = {
+            'patient' : ('Pacjent'),
+            'file_of_medical_examination' : ('Plik badania'),
+            'notes' : ('Opis badania'),
+            'date_of_medical_examination' : ('Data badania'),
+        }
 

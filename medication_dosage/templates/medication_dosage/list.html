@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %} Lista przepisanych leków {% endblock %}
+
+{% block content %}
+<h1> Lista przepisanych leków</h1>
+    {% for item in medication_dosage_list %}
+        {{ item.date }} {{ item.list_of_medicaments }} <br>
+
+    {% endfor %}
+{% endblock %}

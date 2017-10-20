@@ -1,4 +1,7 @@
+from django.http import HttpResponse
 from django.shortcuts import render
+from django.utils.encoding import smart_str
+
 from .forms import BadanieForm
 from django.contrib.auth.decorators import login_required
 from .models import Badanie
