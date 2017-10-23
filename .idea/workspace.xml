@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0286b7b4-907a-4d64-9fcb-1f292da40745" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/profil/static/css/referral_pdf.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/referral/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/referral/admin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/referral/forms.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/referral/models.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/referral/templates/referral/referral.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/referral/templates/referral/referralForm.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/referral/tests.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/referral/urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/referral/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/appointment/forms.py" afterPath="$PROJECT_DIR$/appointment/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/appointment/views.py" afterPath="$PROJECT_DIR$/appointment/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ePrzychodnia/settings.py" afterPath="$PROJECT_DIR$/ePrzychodnia/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ePrzychodnia/urls.py" afterPath="$PROJECT_DIR$/ePrzychodnia/urls.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -717,7 +702,14 @@
       <option name="project" value="LOCAL" />
       <updated>1508505192289</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="referral application">
+      <created>1508786857585</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1508786857585</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -793,7 +785,8 @@
     <MESSAGE value="Medication dosage: model, form and view" />
     <MESSAGE value="Appointment: BadanieForm and DosageForm can be add only for appointment patient" />
     <MESSAGE value="Translate forms labels,  fix download files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Translate forms labels,  fix download files" />
+    <MESSAGE value="referral application" />
+    <option name="LAST_COMMIT_MESSAGE" value="referral application" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
