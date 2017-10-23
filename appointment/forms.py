@@ -2,15 +2,15 @@ from django import forms
 from .models import Appointment
 from django.contrib.auth.models import User
 from badanie.forms import PatientFullName, DoctorFullName
-from django.contrib.admin.widgets import AdminDateWidget
-from datetimewidget.widgets import DateTimeWidget, DateWidget, TimeWidget
 from django.utils.translation import ugettext_lazy as _
+from datetime import timedelta, date
+
 
 class AppointmentForm(forms.ModelForm):
 
     def __init__(self, *args,**kwargs):
         super(AppointmentForm, self).__init__(*args, **kwargs)
-        self.fields['doctor'].label = 'Doktor'
+        #self.fields['doctor'].label = 'Doktor'
 
     doctor = DoctorFullName(User.objects.filter(groups__name='lekarz'))
 
@@ -21,7 +21,6 @@ class AppointmentForm(forms.ModelForm):
         labels = {
             'date_of_appointment' : _('Data wizyty'),
         }
-
 
 
 class AppointmentAdminForm(forms.ModelForm):

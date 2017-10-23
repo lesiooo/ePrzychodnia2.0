@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<h3>
+    pieczęć jednostki kierującej, adres, telefon<br>
+    kod, nazwa komórki organizacyjnej<br>
+    numer identyfikacyjny (UMOWY) świadczeniodawcy<br>
+
+
+
+
+</h3>
+<h2>Poznań, {% now "Y m d" %}</h2>
+<h1> SKIEROWANIE DO PORADNI SPECJALISTYCZNEJ</h1>
+{{ referral_pdf.specialist }}
+<h3>
+    ____________________________________________________________________________<br>
+    nazwa poradni <br><br>
+    Proszę o poradę, specjalistyczną, objęcie leczeniem specjalistycznym* <br>
+    Panią(Pana) : {{ referral_pdf.patient.get_ful_name }}<br>
+    <!-- lat : {{ referral_pdf.patient.age }} <br> -->
+    PESEL : {{ referral_pdf.patient.profile.PESEL }} <br>
+    Adres: {{ referral_pdf.patient.profile.adres }} <br>
+    Rozpoznanie: <br>
+    {{ referral_pdf.symptoms }}
+</h3>
+<h2> Kod(ICD10) {{ referral_pdf.key }}</h2>
+<h3>Cel porady(uzasadnienie): </h3>
+{{ referral_pdf.reason }}
+<h3>Badania dotychczas wykonane: </h3>
+{{ referral_pdf.examination }}
+<h2>
+    _______________________________________________<br>
+    czytelny podpis i pieczątka lekarza kierującego
+</h2>
+</body>
+</html>

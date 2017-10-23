@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
     'profil',
+    'referral',
     'badanie',
     'appointment',
     'medication_dosage',

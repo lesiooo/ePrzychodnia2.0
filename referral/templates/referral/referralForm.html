@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %} Generowanie skierowania {% endblock %}
+
+{% block content %}
+<h1> Wypełnij poniższy formularz, aby wygenerować skierowanie</h1>
+    <form action="." method="post">
+    {{  referral_pdf.as_p }}
+    {% csrf_token %}
+     <p>
+         <input type="submit" value="Generuj skierowanie">
+     </p>
+    </form>
+{% endblock %}

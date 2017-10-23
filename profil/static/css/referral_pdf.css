@@ -1,0 +1,19 @@
+h1 {
+    font-size: 14px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 12px;
+    text-align: right;
+}
+
+h3 {
+    font-size: 10px;
+    text-align: left;
+}
+
+body {
+    font-family:helvetica, sans-serif;
+}
+

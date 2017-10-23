@@ -6,3 +6,4 @@ badanie/migrations/
 files/
 appointment/migrations/
 medication_dosage/migrations/
+referral/migrations/

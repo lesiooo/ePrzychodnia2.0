@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^$', 'profil.views.main_page'),
     url(r'^zapis/', include('appointment.urls')),
     url(r'^dawkowanie/', include('medication_dosage.urls')),
+    url(r'^skierowanie/', include('referral.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL,

@@ -54,6 +54,3 @@ def appointment_add_view(request):
     return render(request, 'appointment/add.html',
                   {'appointment_form': appointment_form,'section':'zapis',
                    'appointment_list': appointment_list, 'appointment_history':appointment_history})
-
-
-# Create your views here.
