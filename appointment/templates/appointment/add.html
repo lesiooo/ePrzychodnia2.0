@@ -24,12 +24,22 @@
     <p><input type="submit" value="Zapisz"> </p>
 </form>
     <h2>Najbliższe wizyty:</h2>
+    {% if appointment_list != null %}
+    <table>
+        <tr>
+            <th>Lekarz</th>
+            <th>Data wizyty</th>
+        </tr>
     {% for item in appointment_list %}
-        {{ item.doctor.get_full_name }} {{ item.date_of_appointment }} <br>
+        <tr>
+            <td>{{ item.doctor.get_full_name }}</td>
+            <td>{{ item.date_of_appointment }}</td>
+        </tr>
 
     {% endfor %}
+         </table>
+    {% endif %}
     <h2> Historia wizyt:</h2>
-    {% for item in appointment_history %}
-        {{ item.doctor.get_full_name }} {{ item.date_of_appointment }} <br>
-    {% endfor %}
+    <table>
+    </table>
 {% endblock %}

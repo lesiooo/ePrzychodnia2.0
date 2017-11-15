@@ -8,9 +8,6 @@ from django.contrib import messages
 
 @login_required
 def appointment_add_view(request):
-    appointment_history = Appointment.objects.filter(patient=request.user,
-                                                     date_of_appointment__lte=timezone.now).order_by(
-        'date_of_appointment')
     appointment_list = Appointment.objects.filter(patient=request.user,
                                                   date_of_appointment__gte=timezone.now).order_by(
         'date_of_appointment')
@@ -20,15 +17,22 @@ def appointment_add_view(request):
         if appointment_form.is_valid():
             new_form = appointment_form.save(commit=False)
             new_form.patient = request.user
+            if new_form.date_of_appointment < timezone.now():
+                messages.error(request, "Nie jest możliwe zapisanie się na datę wsteczną.")
+                return render(request,  'appointment/add.html',
+                  {'appointment_form': appointment_form,'section':'zapis',
+                   'appointment_list': appointment_list})
+
+
             number_of_visites = Appointment.objects.filter(doctor=new_form.doctor,
                                                            date_of_appointment__day=new_form.date_of_appointment.day,
                                                            date_of_appointment__month=new_form.date_of_appointment.month,
                                                            date_of_appointment__year=new_form.date_of_appointment.year).count()
-            if number_of_visites < 2:
+            if number_of_visites < 32:
                 new_form.date_of_appointment += timedelta(hours=8, minutes=number_of_visites*15)
             else:
                 days = 0
-                while number_of_visites > 2:
+                while number_of_visites > 32:
                     days += 1
                     number_of_visites = Appointment.objects.filter(doctor=new_form.doctor,
                                                                    date_of_appointment__day=new_form.date_of_appointment.day+days,
@@ -40,6 +44,8 @@ def appointment_add_view(request):
                                                                    date_of_appointment__day=new_form.date_of_appointment.day,
                                                                    date_of_appointment__month=new_form.date_of_appointment.month,
                                                                    date_of_appointment__year=new_form.date_of_appointment.year)
+
+
             for item in daily_list:
                 if new_form.patient == item.patient:
                     messages.error(request, "Nie możesz zapisać się drugi raz na ten sam dzień.")
@@ -53,4 +59,4 @@ def appointment_add_view(request):
 
     return render(request, 'appointment/add.html',
                   {'appointment_form': appointment_form,'section':'zapis',
-                   'appointment_list': appointment_list, 'appointment_history':appointment_history})
+                   'appointment_list': appointment_list})
