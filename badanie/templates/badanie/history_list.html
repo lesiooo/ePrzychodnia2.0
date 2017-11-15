@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %} Historia pacjenta {% endblock %}
+
+{% block content %}
+    {% if request.method == "GET"%}
+    <form action="." method="post">
+    {{ history_list.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="Przeszukaj"></p>
+    </form>
+    {% else %}
+<h1>Historia badań pacjenta.</h1>
+    <table>
+    <tr>
+        <th>Lekarz</th>
+        <th>Data badania</th>
+        <th>Opis badania</th>
+        <th>Plik z badaniami</th>
+    </tr>
+    {% for item in history_list %}
+        <tr>
+        <td>{{ item.doctor }}</td>
+        <td>{{ item.date_of_medical_examination }}</td>
+        <td>{{ item.notes }}</td>
+        <td>
+            {% if item.file_of_medical_examination %}
+                <form method="get" action="{{ item.file_of_medical_examination.url }}">
+                <button type="submit">Pobierz</button>
+            {% endif %}
+        </form></td>
+        </tr>
+    {% endfor %}
+
+    </table>
+    {% endif %}
+{% endblock %}

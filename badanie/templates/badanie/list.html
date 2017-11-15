@@ -8,10 +8,31 @@
         <p>Aby dodać nowe badanie przejdź
             <a href="{% url "badanie_add" %}" >tutaj</a>.</p>
     {% endif %}
+
+    <table>
+    <tr>
+        <th>Lekarz</th>
+        <th>Data badania</th>
+        <th>Opis badania</th>
+        <th>Plik z wynikami</th>
+    </tr>
     {% for badanie in badanie_list %}
-    <h2> {{ badanie.doctor }} {{ badanie.notes }} {{ badanie.date_of_medical_examination }}  {{ badanie.file_of_medical_examination }}</h2>
-        <form method="get" action="{{ badanie.file_of_medical_examination.url }}">
-         <button type="submit">Pobierz</button>
+
+        <tr>
+        <td>{{ badanie.doctor }}</td>
+        <td>{{ badanie.date_of_medical_examination }}</td>
+        <td>{{ badanie.notes }}</td>
+        <td>
+            {% if badanie.file_of_medical_examination %}
+                <form method="get" action="{{ badanie.file_of_medical_examination.url }}">
+                <button type="submit">Pobierz</button>
+            {% endif %}
         </form>
+
+        </td>
+        </tr>
+
     {% endfor %}
+    </table>
+
 {% endblock %}
