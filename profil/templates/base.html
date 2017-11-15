@@ -8,8 +8,26 @@
 <body>
     <div id="header">
         <span class="logo">ePrzychodnia</span>
-        {% if request.user.is_authenticated %}
+        {% if request.user.is_authenticated  and request.user.groups.all.0.name == "lekarz"%}
             <ul class="menu">
+                <li {% if section == "dashboard" %} class="selected"{% endif %}>
+                    <a href="{% url "dashboard" %}">Panel główny</a>
+                </li>
+                <li {% if section == "badania" %} class="selected" {% endif %}>
+                    <a href="{% url "list" %}">Badania</a>
+                </li>
+                <li {% if section == "dawkowanie" %} class="selected" {% endif %}>
+                    <a href="{% url 'medication_dosage_list' %}">Dawkowanie leków</a>
+                </li>
+                <li {% if section == "zapis" %} class="selected" {% endif %}>
+                    <a href="{% url "zapis_do_lekarza" %}">Zapis do lekarza</a>
+                </li>
+               <li {% if section == "zapis" %} class="selected" {% endif %}>
+                    <a href="{% url "skierowanie" %}">Generuj skierowanie</a>
+                </li>
+            </ul>
+        {% elif  request.user.is_authenticated  and request.user.groups.all.0.name == "pacjent"%}
+             <ul class="menu">
                 <li {% if section == "dashboard" %} class="selected"{% endif %}>
                     <a href="{% url "dashboard" %}">Panel główny</a>
                 </li>
@@ -27,6 +45,9 @@
             <ul class="menu">
                 <li>
                     <a href="{% url "register" %}"> Rejestracja </a>
+                </li>
+                <li>
+                    <a href="{% url "contact" %}"> Kontakt</a>
                 </li>
             </ul>
         {% endif %}

@@ -21,7 +21,12 @@ def register(request):
             new_user.groups.add(Group.objects.get(name='pacjent'))
             #profil_dict = user_form.profil_dict()
             PESEL = user_form.clean_pesel()
-            profile = Profile.objects.create(user=new_user, PESEL=PESEL, )
+            city = user_form.clean_city()
+            street = user_form.clean_street()
+            house_number = user_form.clean_house_number()
+            city_code = user_form.clean_city_code()
+            date_of_birth = user_form.clean_date_of_birth()
+            profile = Profile.objects.create(user=new_user, PESEL=PESEL, city=city, city_code=city_code, street=street, house_number=house_number, date_of_birth=date_of_birth)
             return render(request, 'profil/register_done.html', {'new_user': new_user})
         elif user_form.available_pesel() == False:
             messages.error(request, message='PESEL jest już przez kogoś używany. Jeśli należy on do Ciebie, skontaktuj się z obsługą przychodni.')
@@ -47,3 +52,6 @@ def edit(request):
 
 def main_page(request):
     return render(request, 'profil/dashboard.html')
+
+def contact_page(request):
+    return render(request, 'profil/contact.html')

@@ -41,6 +41,26 @@ class UserRegistrationForm(forms.ModelForm):
         cd = self.cleaned_data.get('PESEL')
         return cd
 
+    def clean_city(self):
+        cd = self.cleaned_data.get('city')
+        return cd
+
+    def clean_street(self):
+        cd = self.cleaned_data.get('street')
+        return cd
+
+    def clean_city_code(self):
+        cd = self.cleaned_data.get('city_code')
+        return cd
+
+    def clean_house_number(self):
+        cd = self.cleaned_data.get('house_number')
+        return cd
+
+    def clean_date_of_birth(self):
+        cd = self.cleaned_data.get('date_of_birth')
+        return cd
+
 class UserEditForm(forms.ModelForm):
     class Meta:
         model = User
