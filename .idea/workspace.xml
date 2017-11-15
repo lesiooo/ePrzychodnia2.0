@@ -3,19 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="0286b7b4-907a-4d64-9fcb-1f292da40745" name="Default" comment="Update profile form an model">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/badanie/templates/history_list.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/profil/templates/profil/contact.html" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/static/css/base.css" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/badanie/forms.py" afterPath="$PROJECT_DIR$/badanie/forms.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/badanie/templates/badanie/list.html" afterPath="$PROJECT_DIR$/badanie/templates/badanie/list.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/badanie/urls.py" afterPath="$PROJECT_DIR$/badanie/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/badanie/views.py" afterPath="$PROJECT_DIR$/badanie/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profil/forms.py" afterPath="$PROJECT_DIR$/profil/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profil/models.py" afterPath="$PROJECT_DIR$/profil/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profil/static/css/base.css" afterPath="$PROJECT_DIR$/profil/static/css/base.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profil/templates/base.html" afterPath="$PROJECT_DIR$/profil/templates/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profil/urls.py" afterPath="$PROJECT_DIR$/profil/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profil/views.py" afterPath="$PROJECT_DIR$/profil/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/referral/forms.py" afterPath="$PROJECT_DIR$/referral/forms.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/referral/models.py" afterPath="$PROJECT_DIR$/referral/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/referral/templates/referral/referral.html" afterPath="$PROJECT_DIR$/referral/templates/referral/referral.html" />
@@ -937,7 +930,14 @@
       <option name="project" value="LOCAL" />
       <updated>1510781826927</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Update CSS file, adding custom table">
+      <created>1510781876803</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1510781876803</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -964,21 +964,21 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946378" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985386" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.32925585" sideWeight="0.49811321" order="8" side_tool="false" content_ui="tabs" x="816" y="739" width="1070" height="341" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925585" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32881" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39959225" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925585" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="manage.py@ePrzychodnia" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23799582" sideWeight="0.4948787" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959569" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901832" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925585" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39959225" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1002,7 +1002,8 @@
     <MESSAGE value="referral application" />
     <MESSAGE value="Update profile form an model" />
     <MESSAGE value="Fix past appointment" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix past appointment" />
+    <MESSAGE value="Update CSS file, adding custom table" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update CSS file, adding custom table" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1307,6 +1308,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
           <caret line="51" column="17" lean-forward="false" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -20,4 +20,4 @@ class ReferralPDFForm(forms.ModelForm):
 
     class Meta:
         model = Referral
-        fields = ('patient', 'symptoms', 'key', 'reasons', 'examination')
+        fields = ('patient','specialist', 'symptoms', 'key', 'reasons', 'examination')

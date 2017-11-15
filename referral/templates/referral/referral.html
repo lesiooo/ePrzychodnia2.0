@@ -6,29 +6,26 @@
     kod, nazwa komórki organizacyjnej<br>
     numer identyfikacyjny (UMOWY) świadczeniodawcy<br>
 
-
-
-
 </h3>
-<h2>Poznań, {% now "Y m d" %}</h2>
-<h1> SKIEROWANIE DO PORADNI SPECJALISTYCZNEJ</h1>
-{{ referral_pdf.specialist }}
+<div class="empty_space"></div>
+<h2>Poznań, {% now "Y-m-d" %}</h2>
+<h1> <b>SKIEROWANIE DO PORADNI SPECJALISTYCZNEJ</b> <br>{{ referral_pdf.specialist }}</h1>
 <h3>
     ____________________________________________________________________________<br>
     nazwa poradni <br><br>
     Proszę o poradę, specjalistyczną, objęcie leczeniem specjalistycznym* <br>
-    Panią(Pana) : {{ referral_pdf.patient.get_ful_name }}<br>
+    Panią(Pana) : {{personal_information.patient_name}}<br>
     <!-- lat : {{ referral_pdf.patient.age }} <br> -->
-    PESEL : {{ referral_pdf.patient.profile.PESEL }} <br>
-    Adres: {{ referral_pdf.patient.profile.adres }} <br>
+    PESEL : {{ personal_information.PESEL }} <br>
+    Adres: {{ personal_information.adres }} <br>
     Rozpoznanie: <br>
     {{ referral_pdf.symptoms }}
 </h3>
 <h2> Kod(ICD10) {{ referral_pdf.key }}</h2>
-<h3>Cel porady(uzasadnienie): </h3>
-{{ referral_pdf.reason }}
-<h3>Badania dotychczas wykonane: </h3>
-{{ referral_pdf.examination }}
+<h3>Cel porady(uzasadnienie): <br>{{ referral_pdf.reasons }}</h3>
+
+<h3>Badania dotychczas wykonane: <br>{{ referral_pdf.examination }}</h3>
+<br><br>
 <h2>
     _______________________________________________<br>
     czytelny podpis i pieczątka lekarza kierującego
