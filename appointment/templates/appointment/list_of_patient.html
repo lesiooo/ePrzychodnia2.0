@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %} Lista dzisiejszych pacjentów {% endblock %}
+
+{% block content %}
+<h1>Lista dzisiejszych pacjentów</h1>
+    <table>
+    <tr>
+        <th>Pacjent</th>
+        <th>Notatki</th>
+    </tr>
+    {% for item in list_of_patient %}
+        <tr>
+            <td>{{ item.patient.get_full_name}} </td>
+            <td>{{ item.notes }}</td>
+        </tr>
+    </table>
+
+{% endfor %}
+{% endblock %}

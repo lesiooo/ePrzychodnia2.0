@@ -3,7 +3,7 @@ from .models import Appointment
 from .forms import AppointmentAdminForm
 
 class AppointmentAdmin(admin.ModelAdmin):
-    list_display = ['doctor_name', 'patient_name', 'date_of_appointment']
+    list_display = ['doctor_name', 'patient_name', 'date_of_appointment', 'notes']
 
     def doctor_name(self, instance):
         return 'dr {0}'.format(instance.doctor.get_full_name())

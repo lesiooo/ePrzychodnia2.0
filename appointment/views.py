@@ -1,10 +1,13 @@
 from django.shortcuts import render
-from .forms import AppointmentForm
+from .forms import AppointmentForm, InternalAppointmentForm
 from django.contrib.auth.decorators import login_required
 from datetime import timedelta, date
 from django.utils import timezone
 from .models import Appointment
 from django.contrib import messages
+from django.contrib.auth.models import User
+from badanie.forms import PatientFullName
+
 
 @login_required
 def appointment_add_view(request):
@@ -60,3 +63,24 @@ def appointment_add_view(request):
     return render(request, 'appointment/add.html',
                   {'appointment_form': appointment_form,'section':'zapis',
                    'appointment_list': appointment_list})
+
+@login_required
+def internal_appointment_view(request):
+    if request.method == 'POST':
+        internal_appointment = InternalAppointmentForm(request.user, request.POST)
+        if internal_appointment.is_valid():
+            internal_appointment.save()
+            messages.success(request, "Pomyślnie skierowano na badania wewnętrzne.")
+    else:
+        internal_appointment = InternalAppointmentForm(request.user)
+
+    return render(request, 'appointment/internal_appointment.html', {'internal_appointment': internal_appointment, 'section':'zapis_wewnetrzny'})
+
+@login_required
+def list_of_patient(request):
+    list_of_patient = Appointment.objects.filter(
+                date_of_appointment__day=date.today().day,
+                date_of_appointment__month=date.today().month,
+                date_of_appointment__year=date.today().year,
+                doctor=request.user)
+    return render(request, 'appointment/list_of_patient.html', {'list_of_patient': list_of_patient})
