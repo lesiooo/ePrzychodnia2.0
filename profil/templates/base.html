@@ -17,13 +17,14 @@
                     <a href="{% url "list" %}">Badania</a>
                 </li>
                 <li {% if section == "dawkowanie" %} class="selected" {% endif %}>
-                    <a href="{% url 'medication_dosage_list' %}">Dawkowanie leków</a>
+                    <a href="{% url 'medication_dosage_doctor_list' %}">Dawkowanie leków</a>
                 </li>
-                <li {% if section == "zapis" %} class="selected" {% endif %}>
-                    <a href="{% url "zapis_do_lekarza" %}">Zapis do lekarza</a>
-                </li>
-               <li {% if section == "zapis" %} class="selected" {% endif %}>
+
+                <li {% if section == "skierowanie" %} class="selected" {% endif %}>
                     <a href="{% url "skierowanie" %}">Generuj skierowanie</a>
+                </li>
+                 <li {% if section == "zapis_wewnetrzny" %} class="selected" {% endif %}>
+                    <a href="{% url "skierowanie_wewnetrzne" %}">Wewnętrzne skierowanie</a>
                 </li>
             </ul>
         {% elif  request.user.is_authenticated  and request.user.groups.all.0.name == "pacjent"%}

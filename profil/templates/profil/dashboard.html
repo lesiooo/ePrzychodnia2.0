@@ -1,9 +1,11 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %} Panel główny {% endblock %}
 
 {% block content %}
     <h1>Panel główny</h1>
+
     <p>Witaj w panelu głównym. Możesz <a href="{% url "edit" %}">edytować konto</a> lub
         <a href="{% url "password_change" %}">Zmienić hasło</a>.</p>
+    <img src="{%static "image/logo_pp.png" %}" alt="LogoPP"></img>
 {% endblock %}

@@ -11,7 +11,7 @@
 <h2>Poznań, {% now "Y-m-d" %}</h2>
 <h1> <b>SKIEROWANIE DO PORADNI SPECJALISTYCZNEJ</b> <br>{{ referral_pdf.specialist }}</h1>
 <h3>
-    ____________________________________________________________________________<br>
+    __________________________________________________________________________________________________<br>
     nazwa poradni <br><br>
     Proszę o poradę, specjalistyczną, objęcie leczeniem specjalistycznym* <br>
     Panią(Pana) : {{personal_information.patient_name}}<br>
@@ -19,12 +19,16 @@
     PESEL : {{ personal_information.PESEL }} <br>
     Adres: {{ personal_information.adres }} <br>
     Rozpoznanie: <br>
-    {{ referral_pdf.symptoms }}
+    {{ referral_pdf.symptoms }}<br>
+    ____________________________________________________________________________________________________
 </h3>
 <h2> Kod(ICD10) {{ referral_pdf.key }}</h2>
-<h3>Cel porady(uzasadnienie): <br>{{ referral_pdf.reasons }}</h3>
+<h3>Cel porady(uzasadnienie): <br>{{ referral_pdf.reasons }}
+<br>____________________________________________________________________________________________________</h3>
 
-<h3>Badania dotychczas wykonane: <br>{{ referral_pdf.examination }}</h3>
+<h3>Badania dotychczas wykonane: <br>{{ referral_pdf.examination }}<br>
+________________________________________________________________________________________________________</h3>
+
 <br><br>
 <h2>
     _______________________________________________<br>

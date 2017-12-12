@@ -17,7 +17,15 @@ class ReferralPDFForm(forms.ModelForm):
                 date_of_appointment__month=date.today().month,
                 date_of_appointment__year=date.today().year,
                 doctor=user)))
+        self.fields['patient'].label = 'pacjent'
 
     class Meta:
         model = Referral
         fields = ('patient','specialist', 'symptoms', 'key', 'reasons', 'examination')
+        labels = {
+            'specialist': 'poradnia',
+            'symptoms' : 'objawy',
+            'key': 'klucz ICD10',
+            'reasons': 'powód',
+            'examination': 'badania',
+        }
