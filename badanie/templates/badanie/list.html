@@ -7,7 +7,9 @@
     {% if request.user.groups.all.0.name == "lekarz"%}
         <p>Aby dodać nowe badanie przejdź
             <a href="{% url "badanie_add" %}" >tutaj</a>.</p>
-    {% endif %}
+        <p>Aby sprawdzić historię badań pacjenta przejdź
+            <a href="{% url 'history_list' %}">tutaj</a>.</p>
+    {% else %}
 
     <table>
     <tr>
@@ -34,5 +36,5 @@
 
     {% endfor %}
     </table>
-
+{% endif %}
 {% endblock %}
