@@ -3,9 +3,19 @@
 {% block title %} Lista przepisanych leków {% endblock %}
 
 {% block content %}
-<h1> Lista przepisanych leków</h1>
-    {% for item in medication_dosage_list %}
-        {{ item.date }} {{ item.list_of_medicaments }} <br>
 
-    {% endfor %}
+<h1> Lista przepisanych leków</h1>
+    <table>
+    <tr>
+        <th>Data przepisania leku</th>
+        <th>Lista medykamentów</th>
+    </tr>
+
+        {% for item in medication_dosage_list %}
+            <tr>
+            <td>{{ item.date }} </td>
+            <td>{{ item.list_of_medicaments|linebreaksbr }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %} Leki pacjenta {% endblock %}
+
+{% block content %}
+    {% if request.method == 'GET' %}
+<h1> Po wybraniu pacjenta, będziesz mógł sprawdzić listę leków mu przypisanych, oraz przepisać własne.</h1>
+            <form action="." method="post">
+            {{ medication_list.as_p }}
+            {% csrf_token %}
+            <p><input type="submit" value="Pokaż listę"> </p>
+            </form>
+        {% else %}
+    <p>Aby przepisać leki pacjentowi przejdź
+    <a href="{% url 'medication_dosage_form' %}">tutaj</a>.</p>
+    <table>
+    <tr>
+        <th>Data przepisania leku</th>
+        <th>Lista medykamentów</th>
+    </tr>
+
+        {% for item in medication_list %}
+            <tr>
+            <td>{{ item.date }} </td>
+            <td>{{ item.list_of_medicaments|linebreaksbr }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+            {% endif %}
+
+{% endblock %}
