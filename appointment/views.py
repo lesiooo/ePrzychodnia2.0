@@ -5,8 +5,7 @@ from datetime import timedelta, date
 from django.utils import timezone
 from .models import Appointment
 from django.contrib import messages
-from django.contrib.auth.models import User
-from medical_examination.forms import PatientFullName
+
 
 
 @login_required

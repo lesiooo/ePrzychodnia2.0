@@ -5,7 +5,22 @@
 {% block content %}
     <h1>Panel główny</h1>
 
+    {% if request.user.groups.all.0.name == "lekarz" %}
+    <p>Witaj w panelu głównym. Możesz sprawdzić listę dzisiejszych <a href="{% url "patient_list" %}">pacjentów</a>.</p>
+
+    {% elif  request.user.groups.all.0.name == "pacjent" %}
     <p>Witaj w panelu głównym. Możesz <a href="{% url "edit" %}">edytować konto</a> lub
-        <a href="{% url "password_change" %}">Zmienić hasło</a>.</p>
-    <img src="{%static "image/logo_pp.png" %}" alt="LogoPP"></img>
+        <a href="{% url "password_change" %}">Zmienić hasło</a>.
+    <br> Sprawdż najbliższe wizyty <a href="{% url "zapis_do_lekarza" %}" >tutaj</a> lub
+     <a href="{% url "medication_dosage_list" %}" >listę leków</a>.
+    </p>
+
+    {% else %} <p>
+        Korzystanie z serwisu tylko dla użytkowników,
+        w tym celu zaloguj się do serwisu <a href="{% url "login" %}" >tutaj</a>.
+        <br> Jeśli nie posiadasz konta a chcesz zostać naszym pacjentem załóż konto poprzez stronę internetową
+        <a href="{% url "register" %}">tutaj</a>, lub zgłoś się do pracownika biurowego przychodni i wypełnij odpowiedni druk.
+        </p>
+    {% endif %}
+     <img src="{%static "image/logo_pp.png" %}" alt="LogoPP"></img>
 {% endblock %}
