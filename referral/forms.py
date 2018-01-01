@@ -1,5 +1,5 @@
 from django import forms
-from badanie.forms import PatientFullName
+from medical_examination.forms import PatientFullName
 from django.contrib.auth.models import User
 from appointment.models import Appointment
 from datetime import  date

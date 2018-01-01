@@ -1,8 +1,8 @@
 db.sqlite3
 .idea/
 ePrzychodnia/settings.py
-profil/migrations/
-badanie/migrations/
+profile/migrations/
+medical_examination/migrations/
 files/
 appointment/migrations/
 medication_dosage/migrations/

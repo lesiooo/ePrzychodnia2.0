@@ -39,4 +39,26 @@
     {% endfor %}
          </table>
     {% endif %}
+
+
+    {% if appointment_history != null %}
+    <h2> Historia wizyt:</h2>
+        <table>
+        <tr>
+            <th>Lekarz</th>
+            <th>Data wizyty</th>
+            <th>Opis wizyty</th>
+        </tr>
+        {% for item in appointment_history %}
+            {% if  item.notes != '' %}
+            <tr>
+                <td>{{ item.doctor }}</td>
+                <td> {{ item.date_of_appointment }}</td>
+                <td>{{ item.notes }}</td>
+            </tr>
+            {% endif %}
+
+        {% endfor %}
+        </table>
+    {% endif %}
 {% endblock %}

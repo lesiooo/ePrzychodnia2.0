@@ -69,5 +69,5 @@ class UserEditForm(forms.ModelForm):
 class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ('date_of_birth', 'city', 'street', 'city_code', 'house_number')
+        fields = ('city', 'street', 'city_code', 'house_number')
 

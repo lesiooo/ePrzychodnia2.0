@@ -1,7 +1,7 @@
 from django import forms
 from .models import Appointment
 from django.contrib.auth.models import User
-from badanie.forms import PatientFullName, DoctorFullName
+from medical_examination.forms import PatientFullName, DoctorFullName
 from django.utils.translation import ugettext_lazy as _
 from datetime import timedelta, date
 

@@ -9,7 +9,7 @@ from django.contrib import messages
 
 @login_required
 def dashboard(request):
-    return render(request, 'profil/dashboard.html', {'section': 'dashboard'})
+    return render(request, 'profile_html/dashboard.html', {'section': 'dashboard'})
 
 def register(request):
     if request.method == 'POST':
@@ -27,14 +27,14 @@ def register(request):
             city_code = user_form.clean_city_code()
             date_of_birth = user_form.clean_date_of_birth()
             profile = Profile.objects.create(user=new_user, PESEL=PESEL, city=city, city_code=city_code, street=street, house_number=house_number, date_of_birth=date_of_birth)
-            return render(request, 'profil/register_done.html', {'new_user': new_user})
+            return render(request, 'profile_html/register_done.html', {'new_user': new_user})
         elif user_form.available_pesel() == False:
             messages.error(request, message='PESEL jest już przez kogoś używany. Jeśli należy on do Ciebie, skontaktuj się z obsługą przychodni.')
         else:
             messages.error(request,message='Cos poszło nie tak, konto nie zostało utworzone.')
     else:
         user_form = UserRegistrationForm()
-    return render(request, 'profil/register.html', {'user_form': user_form})
+    return render(request, 'profile_html/register.html', {'user_form': user_form})
 
 @login_required
 def edit(request):
@@ -47,11 +47,11 @@ def edit(request):
     else:
         user_form = UserEditForm(instance=request.user)
         profile_form = ProfileEditForm(instance=request.user.profile)
-    return render(request, 'profil/edit.html', {'user_form': user_form, 'profile_form': profile_form})
+    return render(request, 'profile_html/edit.html', {'user_form': user_form, 'profile_form': profile_form})
 
 
 def main_page(request):
-    return render(request, 'profil/dashboard.html')
+    return render(request, 'profile_html/dashboard.html')
 
 def contact_page(request):
-    return render(request, 'profil/contact.html')
+    return render(request, 'profile_html/contact.html')

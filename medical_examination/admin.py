@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Badanie
-from .forms import BadanieAdminForm
+from .models import MedicalExamination
+from .forms import MedicalExaminationAdminForm
 
 class BadanieAdmin(admin.ModelAdmin):
     list_display = ['doctor_name','patient_name', 'file_of_medical_examination', 'notes', 'date_of_medical_examination']
@@ -11,6 +11,6 @@ class BadanieAdmin(admin.ModelAdmin):
     def patient_name(self, instance):
         return instance.patient.get_full_name()
 
-    form = BadanieAdminForm
+    form = MedicalExaminationAdminForm
 
-admin.site.register(Badanie, BadanieAdmin)
+admin.site.register(MedicalExamination, BadanieAdmin)

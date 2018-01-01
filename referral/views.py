@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.template.loader import render_to_string
 import weasyprint
 from .forms import ReferralPDFForm
-from profil.models import Profile
+from profile.models import Profile
 
 
 @login_required

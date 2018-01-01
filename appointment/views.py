@@ -6,7 +6,7 @@ from django.utils import timezone
 from .models import Appointment
 from django.contrib import messages
 from django.contrib.auth.models import User
-from badanie.forms import PatientFullName
+from medical_examination.forms import PatientFullName
 
 
 @login_required
@@ -14,6 +14,8 @@ def appointment_add_view(request):
     appointment_list = Appointment.objects.filter(patient=request.user,
                                                   date_of_appointment__gte=timezone.now).order_by(
         'date_of_appointment')
+    appointment_history = Appointment.objects.filter(patient=request.user,
+                                                     date_of_appointment__lte=timezone.now).order_by('date_of_appointment')
 
     if request.method == 'POST':
         appointment_form = AppointmentForm(request.POST)
@@ -62,7 +64,8 @@ def appointment_add_view(request):
 
     return render(request, 'appointment/add.html',
                   {'appointment_form': appointment_form,'section':'zapis',
-                   'appointment_list': appointment_list})
+                   'appointment_list': appointment_list,
+                   'appointment_history': appointment_history})
 
 @login_required
 def internal_appointment_view(request):

@@ -32,9 +32,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'profil',
+    'profile',
     'referral',
-    'badanie',
+    'medical_examination',
     'appointment',
     'medication_dosage',
     'django.contrib.admin',
