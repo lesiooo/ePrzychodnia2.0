@@ -29,7 +29,7 @@ def medical_examination_list_view(request):
 
 
 @login_required
-def patient_history_list(request):
+def patient_medical_examination_history_list(request):
     if request.user.groups.filter(name__in=['lekarz']).exists():
         if request.method == 'POST':
             post_list = MedicalExaminationListForm(request.user, request.POST)
@@ -40,4 +40,4 @@ def patient_history_list(request):
             history_list = MedicalExaminationListForm(request.user)
             appointment_history_list =''
         return render(request, 'medical_examination_html/history_list.html',
-                      {'history_list': history_list,'appointment_history_list': appointment_history_list,'section': 'test'})
+                      {'history_list': history_list,'appointment_history_list': appointment_history_list,'section': 'badania'})
