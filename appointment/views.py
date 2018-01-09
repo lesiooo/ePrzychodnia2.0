@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import AppointmentForm, InternalAppointmentForm
+from .forms import AppointmentForm, InternalAppointmentForm, DoctorWriteAppointmentForm
 from django.contrib.auth.decorators import login_required
 from datetime import timedelta, date
 from django.utils import timezone
@@ -86,3 +86,21 @@ def list_of_patient(request):
                 date_of_appointment__year=date.today().year,
                 doctor=request.user)
     return render(request, 'appointment/list_of_patient.html', {'list_of_patient': list_of_patient})
+
+
+@login_required
+def doctor_write_appointment_view(request):
+    if request.method == 'POST':
+        appointment_form = DoctorWriteAppointmentForm(request.user, request.POST)
+        if appointment_form.is_valid():
+            new_appointment_form = appointment_form.save(commit=False)
+            new_appointment_form.doctor = request.user
+            new_appointment_form.date_of_appointment = timezone.now()
+            new_appointment_form.save()
+            messages.success(request, "Pomyślnie wypisano przebieg wizyty.")
+        else:
+            messages.error(request, "Podczas wypisywania protokołu z wizyty wystąpił błąd.")
+    else:
+        appointment_form = DoctorWriteAppointmentForm(request.user)
+    return render(request, 'appointment/doctor_appointment_form.html', {'appointment_form':appointment_form, 'section': 'zapis'})
+

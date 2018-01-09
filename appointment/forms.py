@@ -8,7 +8,7 @@ from datetime import timedelta, date
 
 class AppointmentForm(forms.ModelForm):
 
-    doctor = DoctorFullName(User.objects.filter(groups__name='lekarz'))
+    doctor = DoctorFullName(User.objects.filter(groups__name='lekarz').exclude(groups__name='specjalista'))
     def __init__(self, *args,**kwargs):
         super(AppointmentForm, self).__init__(*args, **kwargs)
         self.fields['doctor'].label = 'Doktor'
@@ -55,3 +55,36 @@ class InternalAppointmentForm(forms.ModelForm):
         model = Appointment
         fields = ('patient', 'doctor', 'date_of_appointment', 'notes')
         widgets = {'date_of_appointment': forms.DateInput(attrs={'class': 'datepicker'})}
+
+class AppointmentHistoryListForm(forms.ModelForm):
+    patient = PatientFullName(User.objects.filter(groups__name='pacjent'))
+
+    def __init__(self, user, *args,**kwargs):
+        super(AppointmentHistoryListForm, self).__init__(*args, **kwargs)
+        self.fields['patient'].queryset = (User.objects.filter(
+            id__in=Appointment.objects.select_related('patient').values('patient').filter(date_of_appointment__day=date.today().day,
+                                                                                          date_of_appointment__month=date.today().month,
+                                                                                          date_of_appointment__year=date.today().year,
+                                                                                          doctor=user)))
+    class Meta:
+        model = Appointment
+        fields =('patient',)
+        exclude = ('doctor', 'date_of_appointment', 'notes')
+
+
+class DoctorWriteAppointmentForm(forms.ModelForm):
+    patient = PatientFullName(User.objects.filter(groups__name='pacjent'))
+
+    def __init__(self, user, *args, **kwargs):
+        super(DoctorWriteAppointmentForm, self).__init__(*args, **kwargs)
+        self.fields['patient'].queryset = (User.objects.filter(
+            id__in=Appointment.objects.select_related('patient').values('patient').filter(
+                date_of_appointment__day=date.today().day,
+                date_of_appointment__month=date.today().month,
+                date_of_appointment__year=date.today().year,
+                doctor=user)))
+
+    class Meta:
+        model = Appointment
+        fields = ('patient', 'notes')
+        exclude = ('doctor', 'date_of_appointment')
