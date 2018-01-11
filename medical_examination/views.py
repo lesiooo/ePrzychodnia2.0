@@ -25,7 +25,7 @@ def medical_examination_view(request):
 @login_required
 def medical_examination_list_view(request):
     medical_examination_list = MedicalExamination.objects.filter(patient=request.user)
-    return render(request, 'medical_examination_html/list.html', {'section': 'badania', 'badanie_list': medical_examination_list})
+    return render(request, 'medical_examination_html/list.html', {'section': 'badania', ' medical_examination_list': medical_examination_list})
 
 
 @login_required

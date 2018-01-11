@@ -13,6 +13,9 @@
                 <li {% if section == "dashboard" %} class="selected"{% endif %}>
                     <a href="{% url "dashboard" %}">Panel główny</a>
                 </li>
+                <li {% if section == "wizyta" %} class="selected" {% endif %}>
+                    <a href="{% url "wizyta_pacjenta" %}">Wizyta pacjenta</a>
+                </li>
                 <li {% if section == "badania" %} class="selected" {% endif %}>
                     <a href="{% url "list" %}">Badania</a>
                 </li>

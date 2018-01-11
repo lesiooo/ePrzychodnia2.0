@@ -5,7 +5,7 @@
 {% block content %}
 <h1> Wypisz protokół z badania.</h1>
     <form action="." method="post" enctype="multipart/form-data">
-    {{ badanie_form.as_p }}
+    {{ medical_examination.as_p }}
     {% csrf_token %}
     <p><input type="submit" value="Zapisz"></p>
     </form>

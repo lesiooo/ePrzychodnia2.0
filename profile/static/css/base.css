@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Muli);
 
 body {
-    margin:0;
+    margin:20px 20px 20px 20px;
     padding:0;
     font-family:helvetica, sans-serif;
 }
@@ -11,7 +11,7 @@ p {
 }
 
 a {
-    color:#12c064;
+    color:#0000FF;
     text-decoration:none;
 }
 
@@ -51,7 +51,7 @@ th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #4CAF50;
+    background-color: #11c0FF;
     color: white;
 }
 
@@ -61,10 +61,10 @@ ol {
 
 #header {
     padding:10px 100px;
-    font-size:14px;
-    background:#12c064;
+    font-size:16px;
+    background:#11c0FF;
     color:#fff;
-    border-bottom:4px solid #1cdf78;
+    border-bottom:4px solid #11c0F0;
     overflow:auto;
 }
 
@@ -120,11 +120,12 @@ label {
     clear:both;
     color:#333;
     margin-bottom:4px;
+    margin-left: 20px;
 }
 input, textarea {
     clear:both;
     float:left;
-    margin:0 0 10px;
+    margin:0 0 10px 10px;
     background:#efefef;
     border:0;
     padding:6px 10px;
@@ -132,9 +133,10 @@ input, textarea {
 }
 input[type=submit], a.button {
     font-weight:bold;
-    background:#12c064;
+    background:#11c0FFFF;
     color:#fff;
     padding:10px 20px;
+    margin: 0 0 0 20px;
     font-size:14px;
     text-transform:uppercase;
 }

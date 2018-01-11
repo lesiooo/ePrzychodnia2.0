@@ -25,10 +25,10 @@
 </form>
     <h2>Najbliższe wizyty:</h2>
     {% if appointment_list != null %}
-    <table>
+    <table >
         <tr>
             <th>Lekarz</th>
-            <th>Data wizyty</th>
+            <th width="20%">Data wizyty</th>
         </tr>
     {% for item in appointment_list %}
         <tr>
@@ -45,16 +45,16 @@
     <h2> Historia wizyt:</h2>
         <table>
         <tr>
-            <th>Lekarz</th>
-            <th>Data wizyty</th>
-            <th>Opis wizyty</th>
+            <th width="20%">Lekarz</th>
+            <th width="20%">Data wizyty</th>
+            <th width="60%">Opis wizyty</th>
         </tr>
         {% for item in appointment_history %}
             {% if  item.notes != '' %}
             <tr>
-                <td>{{ item.doctor }}</td>
+                <td>{{ item.doctor.get_full_name }}</td>
                 <td> {{ item.date_of_appointment }}</td>
-                <td>{{ item.notes }}</td>
+                <td>{{ item.notes|linebreaksbr }}</td>
             </tr>
             {% endif %}
 

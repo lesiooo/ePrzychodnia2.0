@@ -13,16 +13,16 @@
 <h1>Historia badań pacjenta.</h1>
     <table>
     <tr>
-        <th>Lekarz</th>
+        <th width="20%">Lekarz</th>
         <th>Data badania</th>
-        <th>Opis badania</th>
-        <th>Plik z badaniami</th>
+        <th width="60%">Opis badania</th>
+        <th width="10%">Plik z badaniami</th>
     </tr>
     {% for item in history_list %}
         <tr>
-        <td>{{ item.doctor }}</td>
+        <td>{{ item.doctor.get_full_name }}</td>
         <td>{{ item.date_of_medical_examination }}</td>
-        <td>{{ item.notes }}</td>
+        <td>{{ item.notes|linebreaksbr }}</td>
         <td>
             {% if item.file_of_medical_examination %}
                 <form method="get" action="{{ item.file_of_medical_examination.url }}">
@@ -40,14 +40,14 @@
         <tr>
             <th>Lekarz</th>
             <th>Data wizyty</th>
-            <th>Opis wizyty</th>
+            <th width="60%">Opis wizyty</th>
         </tr>
         {% for item in appointment_history_list %}
             {% if  item.notes != '' %}
             <tr>
                 <td>{{ item.doctor }}</td>
                 <td> {{ item.date_of_appointment }}</td>
-                <td>{{ item.notes }}</td>
+                <td>{{ item.notes|linebreaksbr }}</td>
             </tr>
             {% endif %}
 

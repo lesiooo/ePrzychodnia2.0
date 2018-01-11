@@ -13,17 +13,17 @@
 
     <table>
     <tr>
-        <th>Lekarz</th>
+        <th width="20%">Lekarz</th>
         <th>Data badania</th>
-        <th>Opis badania</th>
-        <th>Plik z wynikami</th>
+        <th width="60%">Opis badania</th>
+        <th width="10%">Plik z wynikami</th>
     </tr>
-    {% for badanie in badanie_list %}
+    {% for item in  medical_examination_list %}
 
         <tr>
-        <td>{{ badanie.doctor }}</td>
-        <td>{{ badanie.date_of_medical_examination }}</td>
-        <td>{{ badanie.notes }}</td>
+        <td>{{ item.doctor.get_full_name }}</td>
+        <td>{{ item.date_of_medical_examination }}</td>
+        <td>{{ item.notes|linebreaksbr }}</td>
         <td>
             {% if badanie.file_of_medical_examination %}
                 <form method="get" action="{{ badanie.file_of_medical_examination.url }}">

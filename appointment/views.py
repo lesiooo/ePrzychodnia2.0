@@ -102,5 +102,5 @@ def doctor_write_appointment_view(request):
             messages.error(request, "Podczas wypisywania protokołu z wizyty wystąpił błąd.")
     else:
         appointment_form = DoctorWriteAppointmentForm(request.user)
-    return render(request, 'appointment/doctor_appointment_form.html', {'appointment_form':appointment_form, 'section': 'zapis'})
+    return render(request, 'appointment/doctor_appointment_form.html', {'appointment_form':appointment_form, 'section': 'wizyta'})
 
